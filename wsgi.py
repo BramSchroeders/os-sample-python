@@ -9,5 +9,5 @@ if __name__ == "__main__":
     application.run()
     api = Api(application)
     CORS(application)
-    api.add_resource(HelloWorldExample,HelloWorldExample.get_path())
+    api.add_resource(HelloWorldExample,"/")
     application.run()
