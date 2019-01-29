@@ -18,4 +18,4 @@ class HelloWorldExample(Resource):
     
     @staticmethod
     def get_path():
-        return "/api/v"+major+"-"+minor+"-"+patch+"/hello"
+        return "/api"
