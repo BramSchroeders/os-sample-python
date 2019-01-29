@@ -9,11 +9,14 @@ api = Api(application)
 class HelloWorld(Resource):
     def get(self):
         
-        client = MongoClient('mongodb://172.30.197.160:27017/', username="database-user", password="database-password")
-        db = client.test_database
-        collection = db.test_collection
-        result = {"result" : list(collection.find())}
-        return result
+        try:
+            client = MongoClient('mongodb://172.30.197.160:27017/', username="database-user", password="database-password")
+            db = client.test_database
+            collection = db.test_collection
+            result = {"result" : list(collection.find())}
+            return result
+        except Exception as e:
+            return {"msg":e.message}
         
         #return {'hello': 'world'}
 
