@@ -3,9 +3,6 @@ from flask import Flask
 application = Flask(__name__)
 api = Api(application)
 
-@application.route("/")
-def hello():
-    return "Hello World!"
 
 class HelloWorld(Resource):
     def get(self):
