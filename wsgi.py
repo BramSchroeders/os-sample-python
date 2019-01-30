@@ -10,7 +10,7 @@ api = Api(application)
 class HelloWorld(Resource):
 
     def get(self):
-        client = MongoClient('mongodb:%s:%s/' % (os.environ['OPENSHIFT_MONGODB_DB_HOST'], os.environ['OPENSHIFT_MONGODB_DB_PORT']))
+        client = MongoClient('mongodb://user78M:iYNNx53CdEGAIu1I@mongodb/sampledb')
         #client.close()
         dbs = client.db
         collection = dbs.test_collection
@@ -22,7 +22,7 @@ class HelloWorld(Resource):
 api.add_resource(HelloWorld, '/hello')
 
 if __name__ == "__main__":
-    client = MongoClient('mongodb:%s:%s/' % (os.environ['OPENSHIFT_MONGODB_DB_HOST'], os.environ['OPENSHIFT_MONGODB_DB_PORT']))
+    client = MongoClient('mongodb://user78M:iYNNx53CdEGAIu1I@mongodb/sampledb')
     #client.close()
     dbs = client.db
     collection = dbs.test_collection
