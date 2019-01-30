@@ -18,7 +18,8 @@ class HelloWorld(Resource):
         out = collection.find_one()
         client.close()
         '''
-        return os.environ['MONGO_URL']
+        x = os.environ['MONGO_URL']
+        return {'hello': 'world'}
         #return {'hello': 'world'}
 
 api.add_resource(HelloWorld, '/hello')
