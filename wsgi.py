@@ -18,7 +18,7 @@ class HelloWorld(Resource):
         out = collection.find_one()
         client.close()
         '''
-        x = os.environ['MONGO_URL']
+        x = 1+1
         return {'hello': 'world'}
         #return {'hello': 'world'}
 
