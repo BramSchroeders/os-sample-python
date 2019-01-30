@@ -19,7 +19,8 @@ class HelloWorld(Resource):
         client.close()
         '''
         x = 1+1
-        return os.environ
+        print("request")
+        return {'hello': 'world'}
         #return {'hello': 'world'}
 
 api.add_resource(HelloWorld, '/hello')
