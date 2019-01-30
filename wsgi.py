@@ -14,7 +14,7 @@ class HelloWorld(Resource):
         #client.close()
         dbs = client.sampledb
         collection = dbs.test_collection
-        out = collection.find_one()
+        out = {"stuff": list(collection.find())}
         client.close()
         return out
         #return {'hello': 'world'}
