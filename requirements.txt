@@ -2,4 +2,4 @@ gunicorn
 Flask
 flask_restful
 flask_cors
-pymongo
+pymongo=3.7.2

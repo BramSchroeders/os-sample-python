@@ -10,20 +10,23 @@ api = Api(application)
 class HelloWorld(Resource):
 
     def get(self):
-        #client = MongoClient(os.environ['OPENSHIFT_NOSQL_DB_URL'])
+        client = MongoClient(os.environ['MONGODB_SERVICE_HOST'])
         #client.close()
-        '''
         dbs = client.db
         collection = dbs.test_collection
         out = collection.find_one()
         client.close()
-        '''
-        x = 1+1
-        return {'host' : os.environ['MONGODB_SERVICE_HOST']}
+        return out
         #return {'hello': 'world'}
 
 api.add_resource(HelloWorld, '/hello')
 
 if __name__ == "__main__":
+    client = MongoClient(os.environ['MONGODB_SERVICE_HOST'])
+    #client.close()
+    dbs = client.db
+    collection = dbs.test_collection
+    out = collection.insert_one({"hup":"hup"})
+    client.close()
     application.run(debug=True)
         
