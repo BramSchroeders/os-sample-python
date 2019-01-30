@@ -24,12 +24,5 @@ class HelloWorld(Resource):
 api.add_resource(HelloWorld, '/hello')
 
 if __name__ == "__main__":
-    try:
-        client = MongoClient(os.environ['OPENSHIFT_NOSQL_DB_URL'])
-        dbs = client.db
-        collection = dbs.test_collection
-        collection.insert_one({"message":"initial message"})
-        client.close()
-        application.run()
-    except Exception as e:
-        application.run()
+    application.run()
+        
