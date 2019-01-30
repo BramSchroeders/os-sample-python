@@ -18,7 +18,7 @@ class HelloWorld(Resource):
         out = collection.find_one()
         client.close()
         '''
-        return os.environ['OPENSHIFT_MONGODB_DB_URL']
+        return os.environ['MONGO_URL']
         #return {'hello': 'world'}
 
 api.add_resource(HelloWorld, '/hello')
