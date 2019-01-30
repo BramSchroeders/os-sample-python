@@ -19,8 +19,7 @@ class HelloWorld(Resource):
         client.close()
         '''
         x = 1+1
-        print("request")
-        return {'hello': 'world'}
+        return {'host' : os.environ['MONGODB_SERVICE_HOST']}
         #return {'hello': 'world'}
 
 api.add_resource(HelloWorld, '/hello')
