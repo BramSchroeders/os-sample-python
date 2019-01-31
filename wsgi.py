@@ -10,7 +10,7 @@ api = Api(application)
 class HelloWorld(Resource):
 
     def get(self):
-        client = MongoClient('mongodb://user78M:iYNNx53CdEGAIu1I@mongodb/sampledb')
+        client = MongoClient('mongodb://userF1A:XoPYB07S8CG8D8KV@mongodb/sampledb')
         #client.close()
         dbs = client.sampledb
         collection = dbs.test_collection
@@ -22,7 +22,7 @@ class HelloWorld(Resource):
 class PutIn(Resource):
     
     def get(self):
-        client = MongoClient('mongodb://user78M:iYNNx53CdEGAIu1I@mongodb/sampledb')
+        client = MongoClient('mongodb://userF1A:XoPYB07S8CG8D8KV@mongodb/sampledb')
         #client.close()
         names = client.database_names()
         client.close()
@@ -33,7 +33,7 @@ api.add_resource(PutIn, '/putt')
 
 
 if __name__ == "__main__":
-    client = MongoClient('mongodb://user78M:iYNNx53CdEGAIu1I@mongodb/sampledb')
+    client = MongoClient('mongodb://userF1A:XoPYB07S8CG8D8KV@mongodb/sampledb')
     #client.close()
     dbs = client.sampledb
     collection = dbs.test_collection
