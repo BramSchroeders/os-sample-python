@@ -18,8 +18,19 @@ class HelloWorld(Resource):
         client.close()
         return out
         #return {'hello': 'world'}
+        
+class PutIn(Resource):
+    
+    def get(self):
+        client = MongoClient('mongodb://user78M:iYNNx53CdEGAIu1I@mongodb/sampledb')
+        #client.close()
+        names = client.database_names()
+        client.close()
+        return {"message": list(names)}
 
 api.add_resource(HelloWorld, '/hello')
+api.add_resource(PutIn, '/putt')
+
 
 if __name__ == "__main__":
     client = MongoClient('mongodb://user78M:iYNNx53CdEGAIu1I@mongodb/sampledb')
@@ -28,5 +39,5 @@ if __name__ == "__main__":
     collection = dbs.test_collection
     out = collection.insert_one({"hup":"hup"})
     client.close()
-    application.run(debug=True)
+    application.run()
         
