@@ -5,7 +5,7 @@ application = Flask(__name__)
 api = Api(application)
 
 parser = reqparse.RequestParser()
-parser.add_argument('rate', type=int, help='Rate to charge for this resource')
+parser.add_argument('rate')
 
 class HelloWorld(Resource):
 
