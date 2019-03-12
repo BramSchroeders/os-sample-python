@@ -14,7 +14,7 @@ class HelloWorld(Resource):
     
     def post(self):
         args = parser.parse_args()
-        task = {'task': args["task"]}
+        task = {'task' : args["task"]}
         return task
 
 api.add_resource(HelloWorld, '/')
