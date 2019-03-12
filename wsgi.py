@@ -6,12 +6,12 @@ application = Flask(__name__)
 api = Api(application)
 
 parser = reqparse.RequestParser()
-parser.add_argument("task",location="json")
+parser.add_argument("task",type=list,location="json")
 
 class HelloWorld(Resource):
 
     def get(self):
-        return {'rate': 32}
+        return [{'id': 32, 'name' : 'Josh'}, {'id' : 42, 'name' : 'Also Josh'}]
     
     def post(self):
         args = parser.parse_args()
