@@ -6,13 +6,13 @@ api = Api(application)
 
 class HelloWorld(Resource):
 
-    parser = reqparse.RequestParser()
-    parser.add_argument('rate', type=int, help='Rate to charge for this resource')
-
+    
     def get(self):
         return {'rate': 502}
     
     def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('rate', type=int, help='Rate to charge for this resource')
         args = parser.parse_args()
         return {"found" : args['rate']}
 
