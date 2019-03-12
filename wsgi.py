@@ -24,9 +24,9 @@ class HelloWorld(Resource):
 class HelloWorld2(Resource):
 
     def get(self):
-        conn = psycopg2.connect("dbname=sampledb user=user0MQ password=KQoVIps3xkOSLQ7t")
+        conn = psycopg2.connect(host="postgresql://postgresql:5432/",dbname="sampledb" user="user0MQ" password="KQoVIps3xkOSLQ7t")
         cur = conn.cursor()
-        cur.execute('SELECT version()')
+        cur.execute('SELECT * from heroes')
         ver = cur.fetchone()
         cur.close()
         conn.close()
