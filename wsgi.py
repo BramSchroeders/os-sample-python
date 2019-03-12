@@ -5,7 +5,7 @@ application = Flask(__name__)
 api = Api(application)
 
 parser = reqparse.RequestParser()
-parser.add_argument('task', location='form')
+parser.add_argument("task",location="json")
 
 class HelloWorld(Resource):
 
@@ -14,7 +14,7 @@ class HelloWorld(Resource):
     
     def post(self):
         args = parser.parse_args()
-        task = {'task': args['task']}
+        task = {'task': args["task"]}
         return task
 
 api.add_resource(HelloWorld, '/')
