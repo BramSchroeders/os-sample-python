@@ -5,16 +5,17 @@ application = Flask(__name__)
 api = Api(application)
 
 parser = reqparse.RequestParser()
-parser.add_argument('rate')
+parser.add_argument('task')
 
 class HelloWorld(Resource):
 
     def get(self):
-        return {'rate': 55}
+        return {'rate': 63}
     
     def post(self):
         args = parser.parse_args()
-        return {"found" : args['rate']}
+        task = {'task': args['task']}
+        return task
 
 api.add_resource(HelloWorld, '/')
 
