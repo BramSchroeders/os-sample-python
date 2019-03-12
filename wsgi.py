@@ -1,8 +1,9 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
-import datetime
+from flask_cors import CORS
 
 application = Flask(__name__)
+CORS(application)
 api = Api(application)
 
 parser = reqparse.RequestParser()
