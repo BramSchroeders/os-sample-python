@@ -24,14 +24,16 @@ class HelloWorld(Resource):
 class HelloWorld2(Resource):
 
     def get(self):
-        conn = psycopg2.connect(host="postgresql://postgresql:5432/",dbname="sampledb" user="user0MQ" password="KQoVIps3xkOSLQ7t")
-        cur = conn.cursor()
-        cur.execute('SELECT * from heroes')
-        ver = cur.fetchone()
-        cur.close()
-        conn.close()
-
-        return ver
+        try:
+            conn = psycopg2.connect(host="postgresql://postgresql:5432/",dbname="sampledb" user="user0MQ" password="KQoVIps3xkOSLQ7t")
+            cur = conn.cursor()
+            cur.execute('SELECT * from heroes')
+            ver = cur.fetchone()
+            cur.close()
+            conn.close()
+            return ver
+        except Exception as e:
+            return {"msg" : str(e)}
     
     def post(self):
         args = parser.parse_args()
