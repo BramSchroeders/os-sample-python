@@ -18,9 +18,9 @@ class HelloWorld(Resource):
     def post(self):
         args = parser.parse_args()
         task = {'task' : args["task"]}
-        return task, 200#, {'Last-Modified': datetime.now(), 'Cache-Control' : 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0', 'Pragma': 'no-cache','Expires':'-1'}
+        return task, 200
 
-
+'''
 class HelloWorld2(Resource):
 
     def get(self):
@@ -38,10 +38,10 @@ class HelloWorld2(Resource):
     def post(self):
         args = parser.parse_args()
         task = {'task' : args["task"]}
-        return task, 200#, {'Last-Modified': datetime.now(), 'Cache-Control' : 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0', 'Pragma': 'no-cache','Expires':'-1'}
-
+        return task, 200
+'''
 api.add_resource(HelloWorld, '/')
-api.add_resource(HelloWorld2, '/help/')
+#api.add_resource(HelloWorld2, '/help/')
 
 if __name__ == "__main__":
     application.run()
